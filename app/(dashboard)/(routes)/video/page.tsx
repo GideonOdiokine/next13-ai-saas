@@ -75,6 +75,11 @@ const VideoPage = () => {
                         {...field}
                       />
                     </FormControl>
+                    {form.formState?.errors?.prompt && (
+                      <span className="text-red-500 text-sm mt-1">
+                        {form.formState.errors.prompt.message}
+                      </span>
+                    )}
                   </FormItem>
                 )}
               />
@@ -95,8 +100,11 @@ const VideoPage = () => {
           )}
           {!video && !isLoading && <Empty label="No video generated." />}
           {video && (
-            <video controls className="w-full mt-8  rounded-lg border bg-black ">
-              <source src={video}  />
+            <video
+              controls
+              className="w-full mt-8  rounded-lg border bg-black "
+            >
+              <source src={video} />
             </video>
           )}
         </div>

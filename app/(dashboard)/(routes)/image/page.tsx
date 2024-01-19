@@ -86,6 +86,11 @@ const ImagePage = () => {
                         {...field}
                       />
                     </FormControl>
+                    {form.formState?.errors?.prompt && (
+                      <span className="text-red-500 text-sm mt-1">
+                        {form.formState.errors.prompt.message}
+                      </span>
+                    )}
                   </FormItem>
                 )}
               />
@@ -162,21 +167,23 @@ const ImagePage = () => {
           {images.length === 0 && !isLoading && (
             <Empty label="No images generated." />
           )}
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8'>
-            {images.map((src)=> (
-                <Card key={src}
-                className="rounded-lg overflow-hidden"
-                >
-                    <div className="relative aspect-square">
-                        <Image src={src} alt='Image' fill />
-                    </div>
-                    <CardFooter className='p-2'>
-                        <Button onClick={()=> window.open(src)} variant="secondary" className='w-full' >
-                            <DownloadIcon className='h-4 w-4 mr-2' />
-                            Download
-                        </Button>
-                    </CardFooter>
-                </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
+            {images.map((src) => (
+              <Card key={src} className="rounded-lg overflow-hidden">
+                <div className="relative aspect-square">
+                  <Image src={src} alt="Image" fill />
+                </div>
+                <CardFooter className="p-2">
+                  <Button
+                    onClick={() => window.open(src)}
+                    variant="secondary"
+                    className="w-full"
+                  >
+                    <DownloadIcon className="h-4 w-4 mr-2" />
+                    Download
+                  </Button>
+                </CardFooter>
+              </Card>
             ))}
           </div>
         </div>

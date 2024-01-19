@@ -77,6 +77,11 @@ const MusicPage = () => {
                         {...field}
                       />
                     </FormControl>
+                    {form.formState?.errors?.prompt && (
+                      <span className="text-red-500 text-sm mt-1">
+                        {form.formState.errors.prompt.message}
+                      </span>
+                    )}
                   </FormItem>
                 )}
               />

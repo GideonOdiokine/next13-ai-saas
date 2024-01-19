@@ -2,7 +2,7 @@
 
 
 
-A  SaaS AI Platform with Next.js(Fullstack) 13, React, Tailwind, Prisma, Stripe.
+A  SaaS AI Platform with Next.js(Fullstack) 13, React, Tailwind, Prisma and Stripe.
 
 
 Features:
